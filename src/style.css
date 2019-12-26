@@ -1,4 +1,6 @@
 h1, p {
+  font-family: Lato;
+}h1, p {
   font-family: sans-serif;
 }
 #head{
@@ -26,6 +28,11 @@ button{
   margin-left: 35px;
 }
 #par{
+   width: inherit;
+    height: inherit; 
+        
+  
+   
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -35,6 +42,12 @@ button{
   width: 97%;
   height: 80%;
 }
+@media (max-width: 1000px) {
+  child {
+    width: 97%;
+  height: 80%;
+  }
+}
 #subchild{
   height: 70px;
   background-color: #F8EED4;
@@ -43,6 +56,12 @@ button{
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 1000px) {
+  subchild {
+    width: 97%;
+  height: 80%;
+  }
+}
 img{
   height: 350px;
   width: 350px;
@@ -50,7 +69,15 @@ img{
   margin-top: 60px;
   margin-left: 10px;
   margin-bottom: 0px;
+  
 }
+@media (max-width: 1000px) {
+  img {
+    width: 70%; 
+      height: 70%;
+  }
+}
+   
 #description{
   display: flex;
   justify-content: space-around;
@@ -64,6 +91,12 @@ img{
  
   background-color: #D7D0D0;
   text-align: left;
+}
+@media (max-width: 1000px) {
+  ingredient {
+    height: 25%;
+  width: 60%;
+  }
 }
 #recipe{
   font-family: sans-serif;
