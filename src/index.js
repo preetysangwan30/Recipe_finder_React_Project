@@ -95,7 +95,7 @@ printIngredients = (value, index) => {
 
     <div id="header">
           <h1 id="head">Recipe Finder</h1>
-         <center><input onChange={()=>this.setName(event)} value={this.state.search} placeholder="Enter the Name of the Dish"/>
+         <center><input onChange={(event)=>this.setName(event)} value={this.state.search} placeholder="Enter the Name of the Dish"/>
          <span><button onClick={this.getRecipe}>Get Recipes</button></span>
          <br/>
          <br/>
