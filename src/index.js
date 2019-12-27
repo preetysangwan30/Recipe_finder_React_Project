@@ -95,12 +95,14 @@ printIngredients = (value, index) => {
 
     <div id="header">
           <h1 id="head">Recipe Finder</h1>
-         <center><input onChange={(event)=>this.setName(event)} value={this.state.search} placeholder="Enter the Name of the Dish"/>
+         <center>
+         <input onChange={(event)=>this.setName(event)} value={this.state.search} placeholder="Enter the Name of the Dish"/>
          <span><button onClick={this.getRecipe}>Get Recipes</button></span>
          <br/>
-         <br/>
-         {this.state.loadingState == null ? (<h2>Type a Dish Name to Search for it's ingredient</h2>): ("")}</center>
+         <br/></center>
+         
     </div>
+   
          {this.state.loadingState == "LOADING_FAILED" ? (<h1>No Data Has been received</h1>): ("")}
          {this.state.loadingState=="LOADING" ? (<h1>Loading....</h1>): ("")}
          {this.state.loadingState == "LOADING_DONE"? (
@@ -122,7 +124,7 @@ printIngredients = (value, index) => {
          <br/>
          
          <b><i>Ingredients</i></b>
-         <div id="ingredient"><div style={{marginLeft: '20px'}}>{this.state.ingredients[0].map(this.printIngredients)}</div></div><br/>
+         <div id="ingredient"><div id="subing" style={{marginLeft: '20px'}}>{this.state.ingredients[0].map(this.printIngredients)}</div></div><br/>
          <b><i><center>Recipes</center></i></b>
          
          <div id="recipe">
