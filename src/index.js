@@ -10,18 +10,21 @@ class App extends Component {
       myRecipe: {},
       image: '',
       loadingState: null,
+       error: ''
     };
   }
-
+ 
   setName = (event) =>{
     this.setState({
       search: event.target.value
     })
   };
   getRecipe = async() =>{
+    if(this.state.search !== '') {
     this.setState({
       loadingState: 'LOADING'
     })
+   
     console.log(this.state.search)
     const response = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${this.state.search}`);
 
@@ -33,6 +36,9 @@ class App extends Component {
     loadingState: 'LOADING_FAILED'
   })
   } 
+   
+      
+
 
   var ingredients = myJson.meals.map(this.getIngredients);  
   var measures = myJson.meals.map(this.getMeasures);            
@@ -44,7 +50,9 @@ class App extends Component {
     measures: measures
   });
   console.log(this.state.myRecipe)
+    }
 }
+
 
 //function to toggle the like button
 toggleLike= (event) =>{
@@ -53,6 +61,7 @@ toggleLike= (event) =>{
   else
     event.target.style.color = "black";
 }
+
 
 getIngredients = (object) => {
   var keys = Object.keys(object);
@@ -68,6 +77,7 @@ getIngredients = (object) => {
   console.log(ingredients);
   return ingredients;
 }
+ 
 
 getMeasures = (object) => {
   var keys = Object.keys(object);
@@ -103,7 +113,8 @@ printIngredients = (value, index) => {
          
     </div>
    
-         {this.state.loadingState == "LOADING_FAILED" ? (<h1>No Data Has been received</h1>): ("")}
+    {this.state.loadingState == null ? (<h2>Type a Dish Name to Search for it's ingredient </h2> ):("")}
+         {this.state.loadingState == "LOADING_FAILED"  ? (<h1>No Data Has been received</h1>): ("")}
          {this.state.loadingState=="LOADING" ? (<h1>Loading....</h1>): ("")}
          {this.state.loadingState == "LOADING_DONE"? (
     <div id="child">
